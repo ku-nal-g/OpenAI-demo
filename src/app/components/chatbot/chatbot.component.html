@@ -8,7 +8,7 @@
     </div>
 
     <div *ngIf="queriesResponse.length" class="question-answer-section mt-3">
-      <div class="chatwindow_user_msg">
+      <div class="chatwindow_user_msg px-4">
         <div *ngFor="let data of queriesResponse" [ngClass]="data.action_by == 'user' ? 'usermsg' : 'botmsg'" class="d-flex mb-2">
           <ng-container *ngIf="data.action_by =='user'">
             <p class="usermsg_para"><bdo dir="auto">{{data.query}}</bdo></p>
@@ -38,10 +38,10 @@
 <div class="input-section d-flex align-items-center justify-content-center mt-2">
   <div class="input-box">
     <div class="input-section">
-      <input [(ngModel)]="query" type="text" placeholder="Ask Anything...">
+      <input (keydown.enter)="sendUserQuery()" [(ngModel)]="query" type="text" placeholder="Ask Anything...">
     </div>
     <div class="send-icon d-flex align-items-center">
-      <button (click)="sendUserQuery()" [disabled]="!query">
+      <button (click)="sendUserQuery()" [disabled]="!query && this.showLoadingText">
         <img src="assets/send.svg" class="img-fluid" alt="send_icon">
       </button>
     </div>

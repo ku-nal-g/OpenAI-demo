@@ -17,9 +17,8 @@ export class ChatbotComponent {
 
   sendUserQuery() {
     if (this.query.length) {
-      this.queriesResponse.push({ id: this.queriesResponse.length + 1, query: this.query, action_by: "user" })
-    }
-    this.showLoadingText = true;
+      this.queriesResponse.push({ id: this.queriesResponse.length + 1, query: this.query, action_by: "user" });
+      this.showLoadingText = true;
     const url = "https://custom-qatar-backend-service.azurewebsites.net/qa";
     const payload = {
       "conversation_id": Math.floor(Math.random() * 30 + 1).toString(),
@@ -39,5 +38,9 @@ export class ChatbotComponent {
         console.log(err.message);
       }
     }))
+    }
+    else{
+      alert("Please enter some text first!!!");
+    }
   }
 }
