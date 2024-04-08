@@ -1,0 +1,44 @@
+.document-parent{
+  display: flex;
+  height: 92vh;
+
+  .left-div{
+    background-color: #8f1733;
+    width: 30%;
+    height: 100%;
+    padding: 2rem;
+  }
+  .right-div{
+    background-color: #f9f8f8;
+    height: 100%;
+    overflow-y: auto;
+    width: 70%;
+  }
+  .pdf-name{
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 0rem 1rem;
+    cursor: pointer;
+    height: 15%;
+  }
+  .name-time-div{
+    display: flex;
+    flex-direction: column;
+  }
+  button.btn-json,.btn-summary{
+    border: none;
+    border-radius: 4px;
+    font-size: .8rem;
+    outline: none;
+    padding: 8px 12px;
+  }
+  .btn-json{
+    background-color: #601f2e;
+    color: #fff;
+  }
+  .btn-summary{
+    background-color: #fff;
+    color: #601f2e;
+    border: 1px solid #601f2e;
+  }
+}

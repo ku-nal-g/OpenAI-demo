@@ -1,0 +1,45 @@
+<div class="document-parent">
+  <div class="left-div">
+    <div *ngFor="let data of documentList;let i = index" (click)="handlePdfSelection(data)"
+      class="pdf-name d-flex align-items-center mb-3">
+      <div><img src="assets/pdf-img.svg" class="img-fluid me-3"></div>
+      <div class="name-time-div">
+        <div>{{data['File Name']}}</div>
+        <div style="font-size: 12px;
+        color: rgb(86, 86, 86);">Date Modified : {{data['Last Modified Time'] | date : 'dd-MM-yyyy'}}</div>
+      </div>
+    </div>
+  </div>
+  <div class="right-div px-2 py-2">
+    <div class="top-div d-flex justify-content-between align-items-center px-3 py-2">
+      <div class="title">
+        <h5 class="m-0">Document Preview</h5>
+        <p class="m-0">{{pdfSelected[0]?.['File Name']}}</p>
+      </div>
+      <div *ngIf="pdfSelected.length" class="btn-div">
+        <button class="btn-summary me-2">
+          View Summary
+        </button>
+        <button class="btn-json">
+          View JSON
+        </button>
+      </div>
+    </div>
+    <div class="pdf-viewer">
+      <div *ngIf="!pdfSelected.length" class="d-flex align-items-center justify-content-center" style="height: 60vh;">
+        <img src="assets/pdf-blank.svg" class="img-fluid">
+      </div>
+      <div *ngIf="pdfSelected.length" class="view-pdf">
+        <iframe [src]="pdfBlobUrl" width="100%" height="auto"></iframe>
+        <!-- <ejs-pdfviewer
+    id="pdfViewer"
+    [documentPath]='document'
+    [resourceUrl]='resource'
+    style="height:640px;display:block">
+  </ejs-pdfviewer> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>

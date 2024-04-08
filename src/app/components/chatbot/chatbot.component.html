@@ -1,0 +1,49 @@
+<div class="chatwindow-main" [ngClass]="{'center-div' : !queriesResponse.length}">
+  <div class="chatbox">
+    <div *ngIf="!queriesResponse.length"
+      class="initial-landing d-flex justify-content-center align-items-center flex-column">
+      <img src="assets/landing-icon.svg" class="img-fluid">
+      <p class="m-0">I'm your trusty Summarizer and Q&A Assistant!</p>
+      <p class="m-0 minor-text">What would you like to know today ?</p>
+    </div>
+
+    <div *ngIf="queriesResponse.length" class="question-answer-section mt-3">
+      <div class="chatwindow_user_msg">
+        <div *ngFor="let data of queriesResponse" [ngClass]="data.action_by == 'user' ? 'usermsg' : 'botmsg'" class="d-flex mb-2">
+          <ng-container *ngIf="data.action_by =='user'">
+            <p class="usermsg_para"><bdo dir="auto">{{data.query}}</bdo></p>
+            <div class="d-flex align-items-end ms-3"><img src="assets/dot.svg" alt="dot"></div>
+          </ng-container>
+          <ng-container *ngIf="data.action_by == 'bot'">
+            <img src="assets/landing-icon.svg" alt="." width="32px" class="me-2">
+            <div class="botmsg_div">
+              <div *ngIf="!data.botresponse.length" class="typingIndicatorContainer">
+              <div class="typingIndicatorBubble">
+                <div class="typingIndicatorBubbleDot"></div>
+                <div class="typingIndicatorBubbleDot"></div>
+                <div class="typingIndicatorBubbleDot"></div>
+              </div>
+            </div>
+              <bdo *ngIf="data.botresponse.length" dir="auto">
+              {{data.botresponse}}
+            </bdo>
+          </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="input-section d-flex align-items-center justify-content-center mt-2">
+  <div class="input-box">
+    <div class="input-section">
+      <input [(ngModel)]="query" type="text" placeholder="Ask Anything...">
+    </div>
+    <div class="send-icon d-flex align-items-center">
+      <button (click)="sendUserQuery()" [disabled]="!query">
+        <img src="assets/send.svg" class="img-fluid" alt="send_icon">
+      </button>
+    </div>
+  </div>
+</div>

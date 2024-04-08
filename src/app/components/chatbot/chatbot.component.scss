@@ -1,0 +1,144 @@
+.chatwindow-main {
+  background-color: #fff;
+  height: calc(100vh - 9rem);
+  display: flex;
+  justify-content: center;
+
+  .chatbox {
+    width: 75%;
+  }
+
+  .minor-text {
+    font-size: 12px;
+    font-weight: 500;
+    color: #626262;
+  }
+
+  .chatwindow_user_msg {
+    width: 100%;
+  }
+
+  .usermsg {
+    justify-content: flex-end;
+  }
+
+  .usermsg_para {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    border-right: 5px solid #892245;
+    color: #292929;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    margin: 0;
+    padding: .9rem 1.2rem;
+    text-align: right;
+    white-space: wrap;
+  }
+
+  .botmsg_div {
+    border: 1px solid #ddd;
+    border-left: 5px solid #000;
+    border-radius: 6px;
+    color: #292929;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    margin: 0;
+    padding: .9rem 1.2rem;
+    text-align: right;
+    white-space: wrap;
+  }
+
+  .question-answer-section {
+    height: calc(100vh - 10rem);
+    overflow: auto;
+  }
+}
+
+
+div.input-box {
+  background: #f9f9f9;
+  border: 1px solid #d9dadc;
+  border-radius: 8px !important;
+  bottom: 15px;
+  box-shadow: 5px 3px 10px 5px #f9f9f9;
+  display: flex;
+  flex-direction: row;
+  padding: 0rem 1rem;
+  width: 75%;
+
+  .input-section {
+    width: 98%;
+  }
+
+  input {
+    background-color: #f9f9f9;
+    border: none;
+    outline: none;
+    padding: .7rem .5rem;
+    width: 100%;
+  }
+
+  button {
+    border: none;
+    outline: none;
+    background-color: transparent;
+  }
+}
+
+.center-div {
+  align-items: center;
+}
+
+// typing indicator css
+.typingIndicatorContainer {
+  display: flex;
+  flex: none;
+  align-items: flex-end;
+  margin: 4px 0;
+}
+
+.typingIndicatorBubble {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px 8px;
+}
+
+.typingIndicatorBubbleDot {
+  width: 6px;
+  height: 6px;
+  margin-right: 4px;
+  background-color: #57585a;
+  border-radius: 50%;
+  animation-name: bounce;
+  animation-duration: 1.3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.typingIndicatorBubbleDot:first-of-type {
+  margin: 0px 4px;
+}
+
+.typingIndicatorBubbleDot:nth-of-type(2) {
+  animation-delay: 0.15s;
+}
+
+.typingIndicatorBubbleDot:nth-of-type(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes bounce {
+
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+  }
+
+  30% {
+    transform: translateY(-4px);
+  }
+}
